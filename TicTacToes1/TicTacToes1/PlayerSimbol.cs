@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToes1
 {
-    public class PlayerSimbol
+    internal class PlayerSimbol
     {
         public static string firstSimbol = "X";
         public static string secondSimbol = "O";

@@ -11,28 +11,10 @@ namespace TicTacToes1
         public void gameBoard()
         {
 
-            Console.WriteLine(@"
-
-
-  _______   _            _______                    _______                
- |__   __| (_)          |__   __|                  |__   __|               
-    | |     _    ___       | |      __ _    ___       | |      ___     ___ 
-    | |    | |  / __|      | |     / _` |  / __|      | |     / _ \   / _ \
-    | |    | | | (__       | |    | (_| | | (__       | |    | (_) | |  __/
-    |_|    |_|  \___|      |_|     \__,_|  \___|      |_|     \___/   \___|
-                                                                           
-                                                                           
-            
+            string[] gameBoard = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            string player2Simbol = "";
            
-
-
-
-
-");
-
-            Console.WriteLine("TicTacToes");
-            Console.ReadLine();
-
+            CallingGameBoard.GameBoard(gameBoard);
 
             Console.WriteLine("What is the name of player 1?");
             string player1 = Console.ReadLine();
@@ -57,7 +39,7 @@ namespace TicTacToes1
 
 
 
-            string player2Simbol = "";
+            
             if (player1Simbol == PlayerSimbol.secondSimbol)
             {
                 player2Simbol = PlayerSimbol.firstSimbol;
@@ -75,53 +57,25 @@ namespace TicTacToes1
 
             Console.Clear();
 
-            Console.WriteLine("Game Starts!");
+            
             Console.ReadLine();
 
 
-            string[] gameBoard = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
-
-
-            static void GameBoard(string[] gameBoard)
-            {
-                Console.WriteLine(@"
-
-
-  _______   _            _______                    _______                
- |__   __| (_)          |__   __|                  |__   __|               
-    | |     _    ___       | |      __ _    ___       | |      ___     ___ 
-    | |    | |  / __|      | |     / _` |  / __|      | |     / _ \   / _ \
-    | |    | | | (__       | |    | (_| | | (__       | |    | (_) | |  __/
-    |_|    |_|  \___|      |_|     \__,_|  \___|      |_|     \___/   \___|
-                                                                           
-                                                                           
             
 
-");
 
-                Console.WriteLine("         |         |         ");
-                Console.WriteLine($"    {gameBoard[1]}    |    {gameBoard[2]}    |    {gameBoard[3]}    ");
-                Console.WriteLine("         |         |         ");
-                Console.WriteLine("-----------------------------");
-                Console.WriteLine("         |         |         ");
-                Console.WriteLine($"    {gameBoard[4]}    |    {gameBoard[5]}    |    {gameBoard[6]}    ");
-                Console.WriteLine("         |         |         ");
-                Console.WriteLine("-----------------------------");
-                Console.WriteLine("         |         |         ");
-                Console.WriteLine($"    {gameBoard[7]}    |    {gameBoard[8]}    |    {gameBoard[9]}    ");
-                Console.WriteLine("         |         |         ");
-            }
 
-            GameBoard(gameBoard);
+            
+
+            CallingGameBoard.GameBoard(gameBoard);
 
 
             for (int i = 2; i < gameBoard.Length - 1;)
             {
-                bool uzvaretajs = Uzvaretajs(gameBoard);
+                int uzvaretajs = CheckWinner.Winner(gameBoard);
 
 
-                if (uzvaretajs)
+                if (uzvaretajs == 1)
                 {
                     Console.WriteLine($"Winner!");
 
@@ -144,9 +98,9 @@ namespace TicTacToes1
                     int choise1 = int.Parse(choise);
                     gameBoard[choise1] = player1Simbol;
 
-                    Uzvaretajs(gameBoard);
+                    CheckWinner.Winner(gameBoard);
                     Console.Clear();
-                    GameBoard(gameBoard);
+                    CallingGameBoard.GameBoard(gameBoard);
 
 
                 }
@@ -165,9 +119,9 @@ namespace TicTacToes1
                     int choise1 = int.Parse(choise);
 
                     gameBoard[choise1] = player2Simbol;
-                    Uzvaretajs(gameBoard);
+                    CheckWinner.Winner(gameBoard);
                     Console.Clear();
-                    GameBoard(gameBoard);
+                    CallingGameBoard.GameBoard(gameBoard);
 
 
 
@@ -181,47 +135,7 @@ namespace TicTacToes1
 
             }
 
-            static Boolean Uzvaretajs(string[] gameBoard)
-            {
-                if (gameBoard[1] == gameBoard[2] && gameBoard[2] == gameBoard[3])
-                {
-                    return true;
-                }
-                else if (gameBoard[4] == gameBoard[5] && gameBoard[5] == gameBoard[6])
-                {
-                    return true;
-                }
-                else if (gameBoard[7] == gameBoard[8] && gameBoard[8] == gameBoard[9])
-                {
-                    return true;
-                }
-                else if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7])
-                {
-                    return true;
-                }
-                else if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8])
-                {
-                    return true;
-                }
-                else if (gameBoard[3] == gameBoard[6] && gameBoard[6] == gameBoard[9])
-                {
-                    return true;
-                }
-                else if (gameBoard[1] == gameBoard[5] && gameBoard[5] == gameBoard[9])
-                {
-                    return true;
-                }
-                else if (gameBoard[3] == gameBoard[5] && gameBoard[5] == gameBoard[7])
-                {
-                    return true;
-                }
-                else if (gameBoard[1] != "1" && gameBoard[2] != "2" && gameBoard[3] != "3" && gameBoard[4] != "4" && gameBoard[5] != "5" && gameBoard[6] != "6" && gameBoard[7] != "7" && gameBoard[8] != "8" && gameBoard[9] != "9")
-                {
-                    return true;
-                }
-                return false;
-
-            }
+           
 
 
 
