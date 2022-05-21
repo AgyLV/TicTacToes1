@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,10 @@ namespace TicTacToes1
         public void gameBoard()
         {
 
+
             string[] gameBoard = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             string player2Simbol = "";
-           
+
             CallingGameBoard.GameBoard(gameBoard);
 
             Console.WriteLine("What is the name of player 1?");
@@ -39,7 +40,7 @@ namespace TicTacToes1
 
 
 
-            
+
             if (player1Simbol == PlayerSimbol.secondSimbol)
             {
                 player2Simbol = PlayerSimbol.firstSimbol;
@@ -57,27 +58,39 @@ namespace TicTacToes1
 
             Console.Clear();
 
-            
+
             Console.ReadLine();
 
 
-            
-
-
-
-            
-
             CallingGameBoard.GameBoard(gameBoard);
+
+           
+            int turn = 0;
+          
 
 
             for (int i = 2; i < gameBoard.Length - 1;)
             {
                 int uzvaretajs = CheckWinner.Winner(gameBoard);
-
+                            
+                           
 
                 if (uzvaretajs == 1)
                 {
                     Console.WriteLine($"Winner!");
+
+
+                    if (gameBoard[i] == player1Simbol)
+                    {
+                        Console.WriteLine($"{player1} wins!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{player2} wins!");
+                    }
+                 
+                    
+
 
                     break;
                 }
@@ -116,6 +129,8 @@ namespace TicTacToes1
 
                     i++;
 
+
+
                     int choise1 = int.Parse(choise);
 
                     gameBoard[choise1] = player2Simbol;
@@ -124,6 +139,28 @@ namespace TicTacToes1
                     CallingGameBoard.GameBoard(gameBoard);
 
 
+                    static bool Aiznemts(int choise, int choise1, string PlayerSimbol, string[] gameBoard, string player1Simbol, string player2Simbol)
+                    {
+                        for (int i = 2; i < gameBoard.Length - 1;)
+                        {
+                            if (gameBoard[choise] == player2Simbol || gameBoard[choise1] == player1Simbol) // pārbauda vai lukums jau nav aizņemts
+                            {
+                                Console.WriteLine("Field is already taken!");
+                                Console.Write("Choose other field");
+                                Console.ReadLine();
+                                Console.Clear();
+                                return true;
+                            }
+                        }
+                        gameBoard[choise] = PlayerSimbol;
+                        gameBoard[choise1] = PlayerSimbol;
+
+                        return false;
+
+
+                    }
+
+                    
 
                 }
 
@@ -133,38 +170,31 @@ namespace TicTacToes1
 
 
 
+
+
+                //string[] gameBoard = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+                //gameBoard[1] = "XX"; // NEMAINIJU TESTA PĒC ŠO LĪNIJU JĀDZĒŠ ARA
+
+                //Console.WriteLine("         |         |         ");
+                //Console.WriteLine($"    {gameBoard[1]}    |    {gameBoard[2]}    |    {gameBoard[3]}    ");
+                //Console.WriteLine("         |         |         ");
+                //Console.WriteLine("-----------------------------");
+                //Console.WriteLine("         |         |         ");
+                //Console.WriteLine($"    {gameBoard[4]}    |    {gameBoard[5]}    |    {gameBoard[6]}    ");
+                //Console.WriteLine("         |         |         ");
+                //Console.WriteLine("-----------------------------");
+                //Console.WriteLine("         |         |         ");
+                //Console.WriteLine($"    {gameBoard[7]}    |    {gameBoard[8]}    |    {gameBoard[9]}    ");
+                //Console.WriteLine("         |         |         ");
+
+
+
+
+
+
+
             }
-
-           
-
-
-
-
-
-
-
-            //string[] gameBoard = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
-            //gameBoard[1] = "XX"; // NEMAINIJU TESTA PĒC ŠO LĪNIJU JĀDZĒŠ ARA
-
-            //Console.WriteLine("         |         |         ");
-            //Console.WriteLine($"    {gameBoard[1]}    |    {gameBoard[2]}    |    {gameBoard[3]}    ");
-            //Console.WriteLine("         |         |         ");
-            //Console.WriteLine("-----------------------------");
-            //Console.WriteLine("         |         |         ");
-            //Console.WriteLine($"    {gameBoard[4]}    |    {gameBoard[5]}    |    {gameBoard[6]}    ");
-            //Console.WriteLine("         |         |         ");
-            //Console.WriteLine("-----------------------------");
-            //Console.WriteLine("         |         |         ");
-            //Console.WriteLine($"    {gameBoard[7]}    |    {gameBoard[8]}    |    {gameBoard[9]}    ");
-            //Console.WriteLine("         |         |         ");
-
-
-
-
-
-
-
         }
     }
 }
