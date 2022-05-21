@@ -69,36 +69,38 @@ namespace TicTacToes1
           
 
 
-            for (int i = 2; i < gameBoard.Length - 1;)
+            for (int i = 0; i < gameBoard.Length-1;)
             {
                 int uzvaretajs = CheckWinner.Winner(gameBoard);
                             
                            
 
-                if (uzvaretajs == 1)
-                {
-                    Console.WriteLine($"Winner!");
+                //if (uzvaretajs == 1)
+                //{
+                //    Console.WriteLine($"Winner!");
 
 
-                    if (gameBoard[i] == player1Simbol)
-                    {
-                        Console.WriteLine($"{player1} wins!");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{player2} wins!");
-                    }
+                //    if (gameBoard[i] == player1Simbol)
+                //    {
+                //        Console.WriteLine($"{player1} wins!");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine($"{player2} wins!");
+                //    }
                  
                     
 
 
-                    break;
-                }
+                //    break;
+                //}
+
                 if (i % 2 == 0)
                 {
 
                     Console.WriteLine($"{player1} choose your field!");
-                    string choise = Console.ReadLine();
+                    //string choise = Console.ReadLine();
+                    int choise = int.Parse(Console.ReadLine());
 
                     // while (choise != "1" || choise != "2" || choise != "3" || choise != "4" || choise != "5" || choise != "6" || choise != "7" || choise != "8" || choise != "9")
                     //{
@@ -108,19 +110,33 @@ namespace TicTacToes1
 
                     i++;
 
-                    int choise1 = int.Parse(choise);
-                    gameBoard[choise1] = player1Simbol;
+                    //int choise1 = int.Parse(choise);
+                    gameBoard[choise] = player1Simbol;
 
-                    CheckWinner.Winner(gameBoard);
+                    uzvaretajs = CheckWinner.Winner(gameBoard); // kombinācijas vērtību pārnesam uz mainīgo, proti, vai ir 3 simboli pēc kārtas
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
 
+                    if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
+                    {
+                        Console.WriteLine($"Winner: {player1} 1!");
+
+                        break;
+                    }
+
+                    if (i==9)  
+                        // kad būs veikti 9 gājieni, bet vēl nebūs noteikt uzvarētājs, tad rezultāts būs neizšķirts.
+                        // Pirmajam spēlētājam sanāk par vienu gājienu vairāk, tāpēc šī pārbaude notiek pēc 1. spēlētāja veiktā gājiena.
+                    {
+                        Console.WriteLine($"Neizskirts starp spēlētāju {player1} un {player2}!");
+                        break;
+                    }
 
                 }
                 if (i % 2 != 0)
                 {
                     Console.WriteLine($"{player2} choose your field!");
-                    string choise = Console.ReadLine();
+                    int choise = int.Parse(Console.ReadLine());
                     //while (choise != "1" || choise != "2" || choise != "3" || choise != "4" || choise != "5" || choise != "6" || choise != "7" || choise != "8" || choise != "9")
                     // {
                     //    Console.WriteLine($"{player2} choose your field!");
@@ -131,12 +147,19 @@ namespace TicTacToes1
 
 
 
-                    int choise1 = int.Parse(choise);
+                    //int choise1 = int.Parse(choise);
 
-                    gameBoard[choise1] = player2Simbol;
-                    CheckWinner.Winner(gameBoard);
+                    gameBoard[choise] = player2Simbol;
+                    uzvaretajs = CheckWinner.Winner(gameBoard);
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
+
+                    if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
+                    {
+                        Console.WriteLine($"Winner: {player1} 2!");
+
+                        break;
+                    }
 
 
                     static bool Aiznemts(int choise, int choise1, string PlayerSimbol, string[] gameBoard, string player1Simbol, string player2Simbol)
