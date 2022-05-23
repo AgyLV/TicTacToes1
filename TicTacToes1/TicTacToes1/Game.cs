@@ -103,7 +103,7 @@ Sveicināti spēlē Tic Tac Toe! Kā vēlies spēlēt?
 
 
 
-            Console.WriteLine("Vieta kur ievietot spēli!");
+            
             Console.ReadLine();
 
         }
