@@ -58,7 +58,7 @@ Sveicināti spēlē Tic Tac Toe! Kā vēlies spēlēt?
 
             ";
 
-            string[] options = { "  Spēlēt pret otru spēlētāju  ", "  Spēlēt pret datoru  ", "  Par spēles radītājiem  ", "  Iziet no spēles  " };
+            string[] options = { "  Spēlēt pret otru spēlētāju  ",  "  Par spēles radītājiem  ", "  Iziet no spēles  " }; //"  Spēlēt pret datoru  ",
             Menu galvenaIzvele = new Menu(promt, options);
             int SelectedIndex = galvenaIzvele.Run(); // šis atgriezīs skaitli kad spēlētājs izvēlēsies kaut ko no izvēles
 
@@ -67,13 +67,13 @@ Sveicināti spēlē Tic Tac Toe! Kā vēlies spēlēt?
                 case 0:
                     SpeletArOtruSpeletaju();
                     break;
+                //case 1:
+                //    SpeletPretDatoru();
+                //    break;
                 case 1:
-                    SpeletPretDatoru();
-                    break;
-                case 2:
                     ParSpelesRaditajiem();
                     break;
-                case 4:
+                case 2:
                     IzietNoSpeles();
                     break;
                     //default:
@@ -107,10 +107,10 @@ Sveicināti spēlē Tic Tac Toe! Kā vēlies spēlēt?
             Console.ReadLine();
 
         }
-        private void SpeletPretDatoru()
-        {
-            Console.WriteLine("Vieta kur spēlet pret datoru");
-        }
+        //private void SpeletPretDatoru()
+        //{
+        //    Console.WriteLine("Vieta kur spēlet pret datoru");
+        //}
         private void ParSpelesRaditajiem()
         {
 
