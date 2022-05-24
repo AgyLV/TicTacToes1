@@ -26,15 +26,15 @@ namespace TicTacToes1
 ");
 
             Console.WriteLine("         |         |         ");
-            Console.WriteLine($"    {gameBoard[1]}    |    {gameBoard[2]}    |    {gameBoard[3]}    ");
+            Console.WriteLine($"    {gameBoard[0]}    |    {gameBoard[1]}    |    {gameBoard[2]}    ");
             Console.WriteLine("         |         |         ");
             Console.WriteLine("-----------------------------");
             Console.WriteLine("         |         |         ");
-            Console.WriteLine($"    {gameBoard[4]}    |    {gameBoard[5]}    |    {gameBoard[6]}    ");
+            Console.WriteLine($"    {gameBoard[3]}    |    {gameBoard[4]}    |    {gameBoard[5]}    ");
             Console.WriteLine("         |         |         ");
             Console.WriteLine("-----------------------------");
             Console.WriteLine("         |         |         ");
-            Console.WriteLine($"    {gameBoard[7]}    |    {gameBoard[8]}    |    {gameBoard[9]}    ");
+            Console.WriteLine($"    {gameBoard[6]}    |    {gameBoard[7]}    |    {gameBoard[8]}    ");
             Console.WriteLine("         |         |         ");
         }
     }
