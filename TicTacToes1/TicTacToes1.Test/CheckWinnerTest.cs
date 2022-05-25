@@ -48,5 +48,25 @@ namespace TicTacToes1.Test
 
 
         }
+
+
+
+        //public void Winner_WhenContinue_ThenReturns0( string[] { "1","2","3","4","5","6","7","8","9"})
+
+        [Fact]
+        public void Winner_WhenContinue_ThenReturns0z()
+        {
+            string[] newArr = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            int response = CheckWinner.Winner(newArr);
+
+            Assert.Equal(0, response);
+
+        }
+
+
+
+
     }
+
+        
 }
