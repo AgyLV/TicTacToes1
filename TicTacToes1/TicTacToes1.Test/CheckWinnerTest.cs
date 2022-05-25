@@ -29,15 +29,21 @@ namespace TicTacToes1.Test
 
 
        
-        [Fact]
-        public void Winner_WhenDraw_ThenReturns2()
+        [Theory]
+        [InlineData(new object[] { new string[] { "X", "O", "X", "O", "X", "X", "O", "X", "O" } })]
+        [InlineData(new object[] { new string[] { "O", "O", "X", "X", "X", "O", "O", "X", "X" } })]
+        [InlineData(new object[] { new string[] { "O", "X", "O", "X", "X", "O", "X", "O", "X" } })]
+        [InlineData(new object[] { new string[] { "O", "X", "X", "X", "O", "O", "X", "O", "X" } })]
+        [InlineData(new object[] { new string[] { "X", "X", "O", "O", "O", "X", "X", "O", "X" } })]
+        [InlineData(new object[] { new string[] { "X", "O", "X", "O", "O", "X", "X", "X", "O" } })]
+        public void Winner_WhenDraw_ThenReturns2(string[] draw)
         {
 
 
-            string[] checkWinner1 = new string[] { "0", "O", "X", "O","X", "X", "X" };
-            int response = CheckWinner.Winner(checkWinner1);
+            
+            int response = CheckWinner.Winner(draw);
 
-            Assert.Equal(1, response);
+            Assert.Equal(2, response);
 
 
 
