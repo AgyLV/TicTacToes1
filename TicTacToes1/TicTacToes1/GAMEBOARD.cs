@@ -34,21 +34,29 @@ namespace TicTacToes1
                 Console.WriteLine("Name can't be empty! Input your name once more");
                 player2 = Console.ReadLine();
             }
+            
+            //-----------------------------------------------------------------------
+            //Spēlētāja simbola izvēle 
 
-            Console.WriteLine($"{player1} choose your simbol X or O "); //Vajag uztaisīt, lai var ievadīt tikai šos divus simbolus.
-            string player1Simbol = Console.ReadLine().ToUpper();
+            Console.WriteLine($"{player1} choose your simbol X or O "); 
+            //string player1Simbol = Console.ReadLine().ToUpper();
+           
+            PlayerSimbol simbol = new PlayerSimbol();
+
+            string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
+            string xSimbol = "X";
+            string oSimbol = "O";
 
 
 
-
-            if (player1Simbol == PlayerSimbol.secondSimbol)
+            if (player1Simbol == oSimbol)
             {
-                player2Simbol = PlayerSimbol.firstSimbol;
+                player2Simbol = xSimbol;
 
             }
-            else if (player1Simbol == PlayerSimbol.firstSimbol)
+            else if (player1Simbol == xSimbol)
             {
-                player2Simbol = PlayerSimbol.secondSimbol;
+                player2Simbol = oSimbol;
 
             }
 
@@ -56,10 +64,14 @@ namespace TicTacToes1
             Console.WriteLine($"{player2} simbol: {player2Simbol}");
 
 
-            Console.Clear();
-
+            // Spēlētāja izvēlēto simbolu izvade
+            //----------------------------------------------------------------------
+            
+            Console.WriteLine($"Spied ''Enter'', lai turpinātu spēli.");
 
             Console.ReadLine();
+
+            Console.Clear();
 
 
             CallingGameBoard.GameBoard(gameBoard);
@@ -69,7 +81,7 @@ namespace TicTacToes1
           
 
 
-            for (int i = 0; i < gameBoard.Length-1;)
+            for (int i = 0; i < gameBoard.Length;)
             {
                 int uzvaretajs = CheckWinner.Winner(gameBoard);
                             
