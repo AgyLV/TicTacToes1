@@ -44,9 +44,14 @@ namespace TicTacToes1
             PlayerSimbol simbol = new PlayerSimbol();
 
             string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
-            string xSimbol = "X";
-            string oSimbol = "O";
 
+            //string xSimbol = "X";
+            //string oSimbol = "O";
+            Enum x = Enum.X;
+            Enum o = Enum.O;
+
+            string xSimbol = x.ToString();
+            string oSimbol = o.ToString();
 
 
             if (player1Simbol == oSimbol)
