@@ -150,7 +150,7 @@ namespace TicTacToes1
 
                     if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
                     {
-                        Console.WriteLine($"Winner: {player1} 2!");
+                        Console.WriteLine($"Winner: {player2} 2!");
 
                         break;
                     }
