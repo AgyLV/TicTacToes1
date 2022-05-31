@@ -45,8 +45,7 @@ namespace TicTacToes1
 
             string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
 
-            //string xSimbol = "X";
-            //string oSimbol = "O";
+            
             Enum x = Enum.X;
             Enum o = Enum.O;
 
@@ -118,7 +117,11 @@ namespace TicTacToes1
 
                     if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
                     {
-                        Console.WriteLine($"Winner: {player1} 1!");
+                        //Console.WriteLine($"Winner: {player1} 1!");
+
+                        IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
+
+                        showWinner_1.Show(player1, player1Simbol);
 
                         break;
                     }
@@ -155,7 +158,12 @@ namespace TicTacToes1
 
                     if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
                     {
-                        Console.WriteLine($"Winner: {player2} 2!");
+                        // Console.WriteLine($"Winner: {player2} 2!");
+
+                        IShowWinner showWinner_2 = new ConsoleShowWinner_2(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
+
+                        showWinner_2.Show(player2,player2Simbol);
+
 
                         break;
                     }
@@ -202,6 +210,8 @@ namespace TicTacToes1
 
 
             }
+
+
         }
     }
 }
