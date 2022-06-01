@@ -10,8 +10,15 @@ namespace TicTacToes1
     {
         public void Show(string playerName, string playerSimbol)
         {
-
-            Console.WriteLine($"Winner {playerName} with symbol {playerSimbol}!!!");
+            Console.WriteLine(@"
+____      ____  _                                   
+|_  _|    |_  _|(_)                                  
+  \ \  /\  / /  __   _ .--.   _ .--.  .---.  _ .--.  
+   \ \/  \/ /  [  | [ `.-. | [ `.-. |/ /__\\[ `/'`\] 
+    \  /\  /    | |  | | | |  | | | || \__., | |     
+     \/  \/    [___][___||__][___||__]'.__.'[___]    
+                                                     ");
+            Console.WriteLine($"{playerName} with symbol {playerSimbol}!!!");
         }
     }
 }
