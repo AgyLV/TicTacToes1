@@ -13,6 +13,7 @@ namespace TicTacToes1
 
 
             string[] gameBoard = {"1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            int[] taken = new int[10];
             string player2Simbol = "";
 
             CallingGameBoard.GameBoard(gameBoard);
@@ -111,6 +112,13 @@ namespace TicTacToes1
                     //int choise1 = int.Parse(choise);
                     gameBoard[choise -1] = player1Simbol;
 
+                    if (taken[choise] != 0)
+                    {
+                        Console.WriteLine("Field is already taken! Choose other field!");
+                        continue;
+                    }
+
+                    taken[choise] = 1;
                     uzvaretajs = CheckWinner.Winner(gameBoard); // kombinācijas vērtību pārnesam uz mainīgo, proti, vai ir 3 simboli pēc kārtas
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
@@ -147,11 +155,18 @@ namespace TicTacToes1
 
                     i++;
 
+                    if (taken[choise - 1] != 0)
+                    {
+                        Console.WriteLine("Field is already taken! Choose other field!");
+                        continue;
+                    }
+
 
 
                     //int choise1 = int.Parse(choise);
 
                     gameBoard[choise -1] = player2Simbol;
+                    taken[choise - 1] = 1;
                     uzvaretajs = CheckWinner.Winner(gameBoard);
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
