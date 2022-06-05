@@ -77,13 +77,12 @@ namespace TicTacToes1
             Console.ReadLine();
 
             Console.Clear();
-
+            
 
             CallingGameBoard.GameBoard(gameBoard);
 
-           
-            int turn = 0;
-          
+
+            Array.Clear(taken, 0, taken.Length);
 
 
             for (int i = 0; i < gameBoard.Length;)
@@ -96,7 +95,7 @@ namespace TicTacToes1
 
                 if (i % 2 == 0)
                 {
-
+                    
                     Console.WriteLine($"{player1} choose your field!");
                     //string choise = Console.ReadLine();
                     int choise = int.Parse(Console.ReadLine());
@@ -110,15 +109,21 @@ namespace TicTacToes1
                     i++;
 
                     //int choise1 = int.Parse(choise);
-                    gameBoard[choise -1] = player1Simbol;
+                    //gameBoard[choise -1] = player1Simbol;
 
-                    if (taken[choise] != 0)
+                    
+                    if (taken[choise - 1] != 0)
                     {
-                        Console.WriteLine("Field is already taken! Choose other field!");
+                        Console.WriteLine("Field is already taken! Choose other field! 1");
                         continue;
                     }
+                    else
+                    {
+                        gameBoard[choise - 1] = player1Simbol;
+                    }
+                    
 
-                    taken[choise] = 1;
+                    taken[choise - 1] = 1;
                     uzvaretajs = CheckWinner.Winner(gameBoard); // kombinācijas vērtību pārnesam uz mainīgo, proti, vai ir 3 simboli pēc kārtas
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
@@ -155,18 +160,23 @@ namespace TicTacToes1
 
                     i++;
 
+                    
                     if (taken[choise - 1] != 0)
                     {
-                        Console.WriteLine("Field is already taken! Choose other field!");
+                        Console.WriteLine("Field is already taken! Choose other field! 2");
                         continue;
+                    }
+                    else
+                    {
+                        gameBoard[choise - 1] = player2Simbol;
                     }
 
 
 
                     //int choise1 = int.Parse(choise);
-
-                    gameBoard[choise -1] = player2Simbol;
+                    
                     taken[choise - 1] = 1;
+                    //gameBoard[choise -1] = player2Simbol;
                     uzvaretajs = CheckWinner.Winner(gameBoard);
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
