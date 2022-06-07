@@ -16,6 +16,8 @@ namespace TicTacToes1
             int[] taken = new int[10];
             //string player2Simbol = "";
 
+            CallingGameBoard.GameBoard(gameBoard);
+
             PlayerHuman player1 = new PlayerHuman();
             player1.GetPlayerName();
             player1.GetPlayerSimbol();
@@ -23,8 +25,7 @@ namespace TicTacToes1
             PlayerHuman player2 = new PlayerHuman();
             player2.GetPlayerName();
 
-
-            CallingGameBoard.GameBoard(gameBoard);
+                       
 
             //Console.WriteLine("What is the name of player 1?");
             //string player1 = Console.ReadLine();
