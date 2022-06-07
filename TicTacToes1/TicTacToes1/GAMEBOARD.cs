@@ -125,7 +125,7 @@ namespace TicTacToes1
 
                     if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
                     {
-                        //Console.WriteLine($"Winner: {player1} 1!");
+                        
 
                         IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
 
@@ -147,11 +147,7 @@ namespace TicTacToes1
                 {
                     Console.WriteLine($"{player2} choose your field!");
                     int choise = int.Parse(Console.ReadLine());
-                    //while (choise != "1" || choise != "2" || choise != "3" || choise != "4" || choise != "5" || choise != "6" || choise != "7" || choise != "8" || choise != "9")
-                    // {
-                    //    Console.WriteLine($"{player2} choose your field!");
-                    //    choise = Console.ReadLine();
-                    // }
+                    
 
                     i++;
 
@@ -169,17 +165,17 @@ namespace TicTacToes1
 
 
 
-                    //int choise1 = int.Parse(choise);
+                    
 
                     taken[choise - 1] = 1;
-                    //gameBoard[choise -1] = player2Simbol;
+                    
                     uzvaretajs = CheckWinner.Winner(gameBoard);
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
 
                     if (uzvaretajs == 1)  //uzreiz pēc spēlētāja gājiena pārbauda vai ir uzvarējis
                     {
-                        // Console.WriteLine($"Winner: {player2} 2!");
+                        
 
                         IShowWinner showWinner_2 = new ConsoleShowWinner_2(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
 
