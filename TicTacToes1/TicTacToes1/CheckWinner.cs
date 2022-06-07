@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToes1
 {
-    public class CheckWinner
+    public class CheckWinner 
     {
         public static int Winner(string[] gameBoard)
         {
