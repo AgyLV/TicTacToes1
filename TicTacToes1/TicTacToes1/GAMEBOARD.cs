@@ -95,7 +95,7 @@ namespace TicTacToes1
 
                 if (i % 2 == 0)
                 {
-                    
+                    //do
                     Console.WriteLine($"{player1} choose your field!");
                     //string choise = Console.ReadLine();
                     int choise = int.Parse(Console.ReadLine());
@@ -111,7 +111,7 @@ namespace TicTacToes1
                     //int choise1 = int.Parse(choise);
                     //gameBoard[choise -1] = player1Simbol;
 
-                    
+                    //[kamēr nav nomainīts simbols]
                     if (taken[choise - 1] != 0)
                     {
                         Console.WriteLine("Field is already taken! Choose other field! 1");
