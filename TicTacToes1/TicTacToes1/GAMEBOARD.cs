@@ -14,37 +14,45 @@ namespace TicTacToes1
 
             string[] gameBoard = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             int[] taken = new int[10];
-            string player2Simbol = "";
+            //string player2Simbol = "";
+
+            PlayerHuman player1 = new PlayerHuman();
+            player1.GetPlayerName();
+            player1.GetPlayerSimbol();
+
+            PlayerHuman player2 = new PlayerHuman();
+            player2.GetPlayerName();
+
 
             CallingGameBoard.GameBoard(gameBoard);
 
-            Console.WriteLine("What is the name of player 1?");
-            string player1 = Console.ReadLine();
+            //Console.WriteLine("What is the name of player 1?");
+            //string player1 = Console.ReadLine();
 
-            while (string.IsNullOrEmpty(player1))
-            {
-                Console.WriteLine("Name can't be empty! Input your name once more");
-                player1 = Console.ReadLine();
-            }
+            //while (string.IsNullOrEmpty(player1))
+            //{
+            //    Console.WriteLine("Name can't be empty! Input your name once more");
+            //    player1 = Console.ReadLine();
+            //}
 
-            Console.WriteLine("What is the name of player 2?");
-            string player2 = Console.ReadLine();
+            //Console.WriteLine("What is the name of player 2?");
+            //string player2 = Console.ReadLine();
 
-            while (string.IsNullOrEmpty(player2))
-            {
-                Console.WriteLine("Name can't be empty! Input your name once more");
-                player2 = Console.ReadLine();
-            }
+            //while (string.IsNullOrEmpty(player2))
+            //{
+            //    Console.WriteLine("Name can't be empty! Input your name once more");
+            //    player2 = Console.ReadLine();
+            //}
 
-            //-----------------------------------------------------------------------
-            //Spēlētāja simbola izvēle 
+            ////-----------------------------------------------------------------------
+            ////Spēlētāja simbola izvēle 
 
-            Console.WriteLine($"{player1} choose your simbol X or O ");
-            //string player1Simbol = Console.ReadLine().ToUpper();
+            //Console.WriteLine($"{player1} choose your simbol X or O ");
+            ////string player1Simbol = Console.ReadLine().ToUpper();
 
-            PlayerSimbol simbol = new PlayerSimbol();
+            //PlayerSimbol simbol = new PlayerSimbol();
 
-            string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
+            //string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
 
 
             Enum x = Enum.X;
@@ -54,19 +62,19 @@ namespace TicTacToes1
             string oSimbol = o.ToString();
 
 
-            if (player1Simbol == oSimbol)
+            if (player1.Simbols == oSimbol)
             {
-                player2Simbol = xSimbol;
+                player2.Simbols = xSimbol;
 
             }
-            else if (player1Simbol == xSimbol)
+            else if (player1.Simbols == xSimbol)
             {
-                player2Simbol = oSimbol;
+                player2.Simbols = oSimbol;
 
             }
 
-            Console.WriteLine($"{player1} simbol: {player1Simbol}");
-            Console.WriteLine($"{player2} simbol: {player2Simbol}");
+            Console.WriteLine($"{player1.Name} simbol: {player1.Simbols }");
+            Console.WriteLine($"{player2.Name} simbol: {player2.Simbols }");
 
 
             // Spēlētāja izvēlēto simbolu izvade
@@ -96,7 +104,7 @@ namespace TicTacToes1
                 if (i % 2 == 0)
                 {
                     
-                    Console.WriteLine($"{player1} choose your field!");
+                    Console.WriteLine($"{player1.Name} choose your field!");
                     
                     int choise = int.Parse(Console.ReadLine());
 
@@ -115,8 +123,8 @@ namespace TicTacToes1
                         continue;
                     }
                     
-                        gameBoard[choise - 1] = player1Simbol;
-                    
+                        gameBoard[choise - 1] = player1.Simbols;
+
 
 
                     taken[choise - 1] = 1;
@@ -130,7 +138,7 @@ namespace TicTacToes1
 
                         IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
 
-                        showWinner_1.Show(player1, player1Simbol);
+                        showWinner_1.Show(player1.Name, player1.Simbols);
 
                         break;
                     }
@@ -139,14 +147,14 @@ namespace TicTacToes1
                     // kad būs veikti 9 gājieni, bet vēl nebūs noteikt uzvarētājs, tad rezultāts būs neizšķirts.
                     // Pirmajam spēlētājam sanāk par vienu gājienu vairāk, tāpēc šī pārbaude notiek pēc 1. spēlētāja veiktā gājiena.
                     {
-                        Console.WriteLine($"Neizskirts starp spēlētāju {player1} un {player2}!");
+                        Console.WriteLine($"Neizskirts starp spēlētāju {player1.Name} un {player2.Name}!");
                         break;
                     }
 
                 }
                 if (i % 2 != 0)
                 {
-                    Console.WriteLine($"{player2} choose your field!");
+                    Console.WriteLine($"{player2.Name} choose your field!");
                     int choise = int.Parse(Console.ReadLine());
                     
 
@@ -161,12 +169,12 @@ namespace TicTacToes1
                     }
                     
                     
-                        gameBoard[choise - 1] = player2Simbol;
-                    
+                        gameBoard[choise - 1] = player2.Simbols;
 
 
 
-                    
+
+
 
                     taken[choise - 1] = 1;
                     
@@ -180,7 +188,7 @@ namespace TicTacToes1
 
                         IShowWinner showWinner_2 = new ConsoleShowWinner_2(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
 
-                        showWinner_2.Show(player2, player2Simbol);
+                        showWinner_2.Show(player2.Name, player2.Simbols);
 
 
                         break;
