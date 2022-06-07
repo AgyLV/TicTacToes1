@@ -12,7 +12,7 @@ namespace TicTacToes1
         {
 
 
-            string[] gameBoard = {"1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            string[] gameBoard = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             int[] taken = new int[10];
             string player2Simbol = "";
 
@@ -35,18 +35,18 @@ namespace TicTacToes1
                 Console.WriteLine("Name can't be empty! Input your name once more");
                 player2 = Console.ReadLine();
             }
-            
+
             //-----------------------------------------------------------------------
             //Spēlētāja simbola izvēle 
 
-            Console.WriteLine($"{player1} choose your simbol X or O "); 
+            Console.WriteLine($"{player1} choose your simbol X or O ");
             //string player1Simbol = Console.ReadLine().ToUpper();
-           
+
             PlayerSimbol simbol = new PlayerSimbol();
 
             string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
 
-            
+
             Enum x = Enum.X;
             Enum o = Enum.O;
 
@@ -71,13 +71,13 @@ namespace TicTacToes1
 
             // Spēlētāja izvēlēto simbolu izvade
             //----------------------------------------------------------------------
-            
+
             Console.WriteLine($"Spied ''Enter'', lai turpinātu spēli.");
 
             Console.ReadLine();
 
             Console.Clear();
-            
+
 
             CallingGameBoard.GameBoard(gameBoard);
 
@@ -88,40 +88,35 @@ namespace TicTacToes1
             for (int i = 0; i < gameBoard.Length;)
             {
                 int uzvaretajs = CheckWinner.Winner(gameBoard);
-                            
-                           
 
-               
+
+
+
 
                 if (i % 2 == 0)
                 {
-                    
+
                     Console.WriteLine($"{player1} choose your field!");
-                    //string choise = Console.ReadLine();
+                    
                     int choise = int.Parse(Console.ReadLine());
 
-                    // while (choise != "1" || choise != "2" || choise != "3" || choise != "4" || choise != "5" || choise != "6" || choise != "7" || choise != "8" || choise != "9")
-                    //{
-                    //    Console.WriteLine($"{player1} choose your field!");
-                    //     choise = Console.ReadLine();
-                    //}
+                   
 
                     i++;
 
-                    //int choise1 = int.Parse(choise);
-                    //gameBoard[choise -1] = player1Simbol;
+                   
 
-                    
-                    if (taken[choise - 1] != 0)
+
+                    while (taken[choise - 1] != 0)
                     {
                         Console.WriteLine("Field is already taken! Choose other field! 1");
+                         choise = int.Parse(Console.ReadLine());
                         continue;
                     }
-                    else
-                    {
-                        gameBoard[choise - 1] = player1Simbol;
-                    }
                     
+                        gameBoard[choise - 1] = player1Simbol;
+                    
+
 
                     taken[choise - 1] = 1;
                     uzvaretajs = CheckWinner.Winner(gameBoard); // kombinācijas vērtību pārnesam uz mainīgo, proti, vai ir 3 simboli pēc kārtas
@@ -139,9 +134,9 @@ namespace TicTacToes1
                         break;
                     }
 
-                    if (i==9)  
-                        // kad būs veikti 9 gājieni, bet vēl nebūs noteikt uzvarētājs, tad rezultāts būs neizšķirts.
-                        // Pirmajam spēlētājam sanāk par vienu gājienu vairāk, tāpēc šī pārbaude notiek pēc 1. spēlētāja veiktā gājiena.
+                    if (i == 9)
+                    // kad būs veikti 9 gājieni, bet vēl nebūs noteikt uzvarētājs, tad rezultāts būs neizšķirts.
+                    // Pirmajam spēlētājam sanāk par vienu gājienu vairāk, tāpēc šī pārbaude notiek pēc 1. spēlētāja veiktā gājiena.
                     {
                         Console.WriteLine($"Neizskirts starp spēlētāju {player1} un {player2}!");
                         break;
@@ -160,21 +155,22 @@ namespace TicTacToes1
 
                     i++;
 
-                    
-                    if (taken[choise - 1] != 0)
+
+                    while (taken[choise - 1] != 0)
                     {
                         Console.WriteLine("Field is already taken! Choose other field! 2");
+                        choise = int.Parse(Console.ReadLine());
                         continue;
                     }
-                    else
-                    {
+                    
+                    
                         gameBoard[choise - 1] = player2Simbol;
-                    }
+                    
 
 
 
                     //int choise1 = int.Parse(choise);
-                    
+
                     taken[choise - 1] = 1;
                     //gameBoard[choise -1] = player2Simbol;
                     uzvaretajs = CheckWinner.Winner(gameBoard);
@@ -187,7 +183,7 @@ namespace TicTacToes1
 
                         IShowWinner showWinner_2 = new ConsoleShowWinner_2(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
 
-                        showWinner_2.Show(player2,player2Simbol);
+                        showWinner_2.Show(player2, player2Simbol);
 
 
                         break;
@@ -209,13 +205,10 @@ namespace TicTacToes1
                         }
                         gameBoard[choise] = PlayerSimbol;
                         gameBoard[choise1] = PlayerSimbol;
-
                         return false;
-
-
                     }
                     */
-                    
+
 
                 }
 
@@ -227,7 +220,7 @@ namespace TicTacToes1
 
 
 
-               
+
 
 
 
