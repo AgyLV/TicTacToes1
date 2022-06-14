@@ -98,25 +98,49 @@ namespace TicTacToes1
             {
                 int uzvaretajs = CheckWinner.Winner(gameBoard);
 
-
+                int choise = 0;
 
 
 
                 if (i % 2 == 0)
                 {
-                    
-                    Console.WriteLine($"{player1.Name} choose your field!");
-                    
-                    int choise = int.Parse(Console.ReadLine());
 
+                    choise = 0;
+
+                   while(choise == 0)
+                    {
+                        try
+                        {
+                            Console.WriteLine($"{player1.Name} choose your field!");
+                            choise = int.Parse(Console.ReadLine());
+                            CheckWinner.CheckInput(choise);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Netika korekti ievadīts skaitlis.");
+                            
+                        }
+                        catch (GameBoardFieldOutOfRangeException ex)
+                        {
+
+                            Console.WriteLine(ex.Message);
+                            choise = 0;
+                        }
+                    
+                    }
+
+
+
+                    
                    
+
 
                     i++;
 
                     //int choise1 = int.Parse(choise);
                     //gameBoard[choise -1] = player1Simbol;
 
-                    
+                    Console.WriteLine(choise);
                     if (taken[choise - 1] != 0)
                     {
                         Console.WriteLine("Field is already taken! Choose other field! 1");
@@ -155,9 +179,32 @@ namespace TicTacToes1
                 }
                 if (i % 2 != 0)
                 {
-                    Console.WriteLine($"{player2.Name} choose your field!");
-                    int choise = int.Parse(Console.ReadLine());
-                    
+                    choise = 0;
+                    while (choise == 0)
+                    {
+                        try
+                        {
+                            Console.WriteLine($"{player2.Name} choose your field!");
+                            choise = int.Parse(Console.ReadLine());
+                            CheckWinner.CheckInput(choise);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Netika korekti ievadīts skaitlis.");
+
+                        }
+                        catch (GameBoardFieldOutOfRangeException ex)
+                        {
+
+                            Console.WriteLine(ex.Message);
+                            choise = 0;
+                        }
+
+                    }
+
+
+
+
 
                     i++;
 

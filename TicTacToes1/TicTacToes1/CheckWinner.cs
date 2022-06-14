@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ namespace TicTacToes1
 {
     public class CheckWinner 
     {
+
         public static int Winner(string[] gameBoard)
         {
             if ((gameBoard[0] == gameBoard[1] && gameBoard[1] == gameBoard[2]) || (gameBoard[3] == gameBoard[4] && gameBoard[4] == gameBoard[5]) || (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]) || (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]) || (gameBoard[0] == gameBoard[3] && gameBoard[3] == gameBoard[6]) || (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]) || (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]) || (gameBoard[0] == gameBoard[4] && gameBoard[4] == gameBoard[8]) || (gameBoard[2] == gameBoard[4] && gameBoard[4] == gameBoard[6]))
@@ -22,6 +23,14 @@ namespace TicTacToes1
             }
             return 0;
 
+        }
+
+        public static void CheckInput(int choise)
+        {
+            if (choise < 1 || choise > 9)
+            {
+                throw new GameBoardFieldOutOfRangeException("Ievadītais skaitlis ir ārpus lauka robežām!");
+            }
         }
     }
 }
