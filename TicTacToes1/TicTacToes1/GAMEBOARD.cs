@@ -14,7 +14,7 @@ namespace TicTacToes1
 
             string[] gameBoard = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             int[] taken = new int[10];
-            //string player2Simbol = "";
+            
 
             CallingGameBoard.GameBoard(gameBoard);
 
@@ -27,34 +27,7 @@ namespace TicTacToes1
 
                        
 
-            //Console.WriteLine("What is the name of player 1?");
-            //string player1 = Console.ReadLine();
-
-            //while (string.IsNullOrEmpty(player1))
-            //{
-            //    Console.WriteLine("Name can't be empty! Input your name once more");
-            //    player1 = Console.ReadLine();
-            //}
-
-            //Console.WriteLine("What is the name of player 2?");
-            //string player2 = Console.ReadLine();
-
-            //while (string.IsNullOrEmpty(player2))
-            //{
-            //    Console.WriteLine("Name can't be empty! Input your name once more");
-            //    player2 = Console.ReadLine();
-            //}
-
-            ////-----------------------------------------------------------------------
-            ////Spēlētāja simbola izvēle 
-
-            //Console.WriteLine($"{player1} choose your simbol X or O ");
-            ////string player1Simbol = Console.ReadLine().ToUpper();
-
-            //PlayerSimbol simbol = new PlayerSimbol();
-
-            //string player1Simbol = simbol.CheckSymbol(); //ievadītais simbols pirmajam spēlētājam.
-
+            
 
             Enum x = Enum.X;
             Enum o = Enum.O;
@@ -74,8 +47,8 @@ namespace TicTacToes1
 
             }
 
-            Console.WriteLine($"{player1.Name} simbol: {player1.Simbols }");
-            Console.WriteLine($"{player2.Name} simbol: {player2.Simbols }");
+            Console.WriteLine($"{player1.Name} simbols: {player1.Simbols }");
+            Console.WriteLine($"{player2.Name} simbols: {player2.Simbols }");
 
 
             // Spēlētāja izvēlēto simbolu izvade
@@ -111,7 +84,7 @@ namespace TicTacToes1
                     {
                         try
                         {
-                            Console.WriteLine($"{player1.Name} choose your field!");
+                            Console.WriteLine($"{player1.Name} izvēlies spēles lauku!");
                             choise = int.Parse(Console.ReadLine());
                             CheckWinner.CheckInput(choise);
                         }
@@ -137,13 +110,12 @@ namespace TicTacToes1
 
                     i++;
 
-                    //int choise1 = int.Parse(choise);
-                    //gameBoard[choise -1] = player1Simbol;
+                    
 
                     Console.WriteLine(choise);
                     if (taken[choise - 1] != 0)
                     {
-                        Console.WriteLine("Field is already taken! Choose other field! 1");
+                        Console.WriteLine("Spēles lauks ir aizņemts. Izvēlies citu lauku.");
                          choise = int.Parse(Console.ReadLine());
                         continue;
                     }
@@ -162,7 +134,7 @@ namespace TicTacToes1
                         
 
                         IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
-
+                        Console.Clear();
                         showWinner_1.Show(player1.Name, player1.Simbols);
 
                         break;
@@ -172,7 +144,7 @@ namespace TicTacToes1
                     // kad būs veikti 9 gājieni, bet vēl nebūs noteikt uzvarētājs, tad rezultāts būs neizšķirts.
                     // Pirmajam spēlētājam sanāk par vienu gājienu vairāk, tāpēc šī pārbaude notiek pēc 1. spēlētāja veiktā gājiena.
                     {
-                        Console.WriteLine($"Neizskirts starp spēlētāju {player1.Name} un {player2.Name}!");
+                        Console.WriteLine($"Neizšķirts starp spēlētāju {player1.Name} un {player2.Name}!");
                         break;
                     }
 
@@ -184,7 +156,7 @@ namespace TicTacToes1
                     {
                         try
                         {
-                            Console.WriteLine($"{player2.Name} choose your field!");
+                            Console.WriteLine($"{player2.Name} izvēlies spēles lauku!");
                             choise = int.Parse(Console.ReadLine());
                             CheckWinner.CheckInput(choise);
                         }
@@ -211,7 +183,7 @@ namespace TicTacToes1
 
                     while (taken[choise - 1] != 0)
                     {
-                        Console.WriteLine("Field is already taken! Choose other field! 2");
+                        Console.WriteLine("Spēles lauks ir aizņemts. Izvēlies citu lauku.");
                         choise = int.Parse(Console.ReadLine());
                         continue;
                     }
@@ -235,7 +207,7 @@ namespace TicTacToes1
                         
 
                         IShowWinner showWinner_2 = new ConsoleShowWinner_2(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
-
+                        Console.Clear();
                         showWinner_2.Show(player2.Name, player2.Simbols);
 
 
@@ -243,24 +215,7 @@ namespace TicTacToes1
                     }
 
 
-                    /*static bool Aiznemts(int choise, int choise1, string PlayerSimbol, string[] gameBoard, string player1Simbol, string player2Simbol)
-                    {
-                        for (int i = 2; i < gameBoard.Length - 1;)
-                        {
-                            if (gameBoard[choise] == player2Simbol || gameBoard[choise1] == player1Simbol) // pārbauda vai lukums jau nav aizņemts
-                            {
-                                Console.WriteLine("Field is already taken!");
-                                Console.Write("Choose other field");
-                                Console.ReadLine();
-                                Console.Clear();
-                                return true;
-                            }
-                        }
-                        gameBoard[choise] = PlayerSimbol;
-                        gameBoard[choise1] = PlayerSimbol;
-                        return false;
-                    }
-                    */
+                    
 
 
                 }

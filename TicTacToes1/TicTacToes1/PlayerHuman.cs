@@ -10,19 +10,19 @@ namespace TicTacToes1
     {
         public override void GetPlayerName()
         {
-            Console.WriteLine("What is the name of player?");
+            Console.WriteLine("Ievadi savu vārdu!");
             Name = Console.ReadLine();
 
             while (string.IsNullOrEmpty(Name))
             {
-                Console.WriteLine("Name can't be empty! Input your name once more");
+                Console.WriteLine("Vārds nevar būt tukšs. Ievadi savu vārdu vēlreiz.");
                 Name = Console.ReadLine();
             }
         }
 
         public virtual void GetPlayerSimbol()
         {
-            Console.WriteLine($"{Name} choose your simbol X or O ");
+            Console.WriteLine($"{Name} izvēlies savu simbolu X vai O ");
             //string player1Simbol = Console.ReadLine().ToUpper();
 
             PlayerSimbol simbol = new PlayerSimbol();

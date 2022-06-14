@@ -10,7 +10,7 @@ namespace TicTacToes1
     {
         public override void GetPlayerName()
         {
-            Console.WriteLine("Computer name is BBB");
+            Console.WriteLine("Datora vārds ir BBB");
             Name = "BBB";
 
             

@@ -10,7 +10,7 @@ namespace TicTacToes1
     {
         public void Show(string playerName, string playerSimbol)
         {
-            Console.WriteLine($"Winner {playerName} with symbol {playerSimbol} !!!");
+            Console.WriteLine($"Uzvarētājs {playerName} ar simbolu {playerSimbol} !!!");
         }
     }
 }

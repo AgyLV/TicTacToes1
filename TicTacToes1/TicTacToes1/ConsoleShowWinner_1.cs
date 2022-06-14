@@ -11,14 +11,17 @@ namespace TicTacToes1
         public void Show(string playerName, string playerSimbol)
         {
             Console.WriteLine(@"
-____      ____  _                                   
-|_  _|    |_  _|(_)                                  
-  \ \  /\  / /  __   _ .--.   _ .--.  .---.  _ .--.  
-   \ \/  \/ /  [  | [ `.-. | [ `.-. |/ /__\\[ `/'`\] 
-    \  /\  /    | |  | | | |  | | | || \__., | |     
-     \/  \/    [___][___||__][___||__]'.__.'[___]    
-                                                     ");
-            Console.WriteLine($"{playerName} with symbol {playerSimbol}!!!");
+
+  _    _                          _        _     
+ | |  | |                        | |      (_)    
+ | |  | |______   ____ _ _ __ ___| |_ __ _ _ ___ 
+ | |  | |_  /\ \ / / _` | '__/ _ \ __/ _` | / __|
+ | |__| |/ /  \ V / (_| | | |  __/ || (_| | \__ \
+  \____//___|  \_/ \__,_|_|  \___|\__\__,_| |___/
+                                         _/ |    
+                                        |__/     
+");
+            Console.WriteLine($"{playerName} ar simbolu {playerSimbol}!!!");
         }
     }
 }
