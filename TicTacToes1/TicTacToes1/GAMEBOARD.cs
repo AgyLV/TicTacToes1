@@ -51,8 +51,7 @@ namespace TicTacToes1
             Console.WriteLine($"{player2.Name} simbols: {player2.Simbols }");
 
 
-            // Spēlētāja izvēlēto simbolu izvade
-            //----------------------------------------------------------------------
+            
 
             Console.WriteLine($"Spied ''Enter'', lai turpinātu spēli.");
 
@@ -125,7 +124,7 @@ namespace TicTacToes1
 
 
                     taken[choise - 1] = 1;
-                    uzvaretajs = CheckWinner.Winner(gameBoard); // kombinācijas vērtību pārnesam uz mainīgo, proti, vai ir 3 simboli pēc kārtas
+                    uzvaretajs = CheckWinner.Winner(gameBoard); 
                     Console.Clear();
                     CallingGameBoard.GameBoard(gameBoard);
 
@@ -133,7 +132,7 @@ namespace TicTacToes1
                     {
                         
 
-                        IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_2" ar datu tipu "IShowWinner"
+                        IShowWinner showWinner_1 = new ConsoleShowWinner_1(); //Definē mainīgo "showWinner_1" ar datu tipu "IShowWinner"
                         Console.Clear();
                         showWinner_1.Show(player1.Name, player1.Simbols);
 
