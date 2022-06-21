@@ -132,7 +132,7 @@ Sveicināti spēlē Tic Tac Toe! Kā vēlies spēlēt?
 
 
 
-Spēli veidoja: Gundars Eimanis, Agnese Vēze, Mārcis Plūme un ");
+Spēli veidoja: Gundars Eimanis, Agnese Vēze, Mārcis Plūme un Daina Švalbe");
             Console.WriteLine("Izmantoti materiāli: https://www.youtube.com/watch?v=qAWhGEPMlS8&list=PLFH_Z9a3ZgxD3poSv3DcXWq0yxrqc3L3_&index=3&t=2s ");
             Console.WriteLine("https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20");
             ReadKey(true);
